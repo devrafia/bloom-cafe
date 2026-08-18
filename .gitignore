@@ -22,6 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
 /.gitignore
 /.oxlintrc.json
 /.vs/bloom-cafe.slnx/FileContentIndex/c75f7905-efcf-43f6-8660-828add9457dd.vsidx
@@ -30,3 +31,6 @@ dist-ssr
 /.gitignore
 /.vs/bloom-cafe.slnx/FileContentIndex/02e9402c-3371-4c59-890f-328bddfc8743.vsidx
 /.vs/bloom-cafe.slnx/FileContentIndex
+=======
+>>>>>>> dc37c998231139f684cf44b3faea04cf4db0bf9c
+/.vs/slnx.sqlite
