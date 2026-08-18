@@ -1,0 +1,231 @@
+/* ==========================================================================
+   Bloom Café — Global Styles & Design Tokens
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---- Palette ---- */
+  --cream: #fdf8f0;
+  --beige: #f2e5d3;
+  --beige-dark: #e6d3b8;
+  --light-brown: #c9986a;
+  --brown: #8a5f3f;
+  --deep-brown: #5b3f2c;
+  --sage: #aec3a0;
+  --sage-dark: #86a274;
+  --pink: #f4cdd6;
+  --pink-dark: #e8a9b8;
+
+  /* ---- Semantic ---- */
+  --color-bg: var(--cream);
+  --color-surface: #ffffff;
+  --color-text: var(--deep-brown);
+  --color-text-soft: #8a7565;
+  --color-accent: var(--sage-dark);
+  --color-accent-soft: var(--sage);
+  --color-highlight: var(--pink-dark);
+  --color-border: #e9dcc8;
+
+  /* ---- Type ---- */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Quicksand', sans-serif;
+
+  /* ---- Radii & Shadows ---- */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 8px 24px rgba(139, 105, 63, 0.12);
+  --shadow-lift: 0 16px 40px rgba(139, 105, 63, 0.18);
+
+  /* ---- Layout ---- */
+  --max-width: 1200px;
+  --nav-height: 76px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--deep-brown);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+}
+
+/* ---- Shared buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 30px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+  background-color: var(--sage-dark);
+  box-shadow: var(--shadow-lift);
+}
+
+.btn-disabled {
+  background-color: var(--beige-dark);
+  color: var(--color-text-soft);
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.btn-disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ---- Fade-in utility ---- */
+.fade-in {
+  animation: fadeIn 0.8s ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Page transition wrapper ---- */
+.page-enter {
+  animation: pageIn 0.5s ease both;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Cup illustration (shared signature element) ---- */
+.cup-illustration {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.cup-illustration--animated .steam-path {
+  animation: steamRise 2.6s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.cup-illustration--animated .steam-2 {
+  animation-delay: 0.4s;
+}
+
+.cup-illustration--animated .steam-3 {
+  animation-delay: 0.8s;
+}
+
+@keyframes steamRise {
+  0% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.15;
+  }
+  35% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-10px) scaleY(1.2);
+    opacity: 0;
+  }
+}
+
+/* ---- Focus visibility ---- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
